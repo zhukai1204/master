@@ -1,6 +1,6 @@
 /**
  *
- * Copyright 2015-present reading
+ * Copyright 20170816-present dstj
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ const TabContainer = TabNavigator(
 const App = StackNavigator(
   {
     Home: {
-      screen: Home,
+      screen: TabContainer,
       navigationOptions: {
         headerLeft: null
       }

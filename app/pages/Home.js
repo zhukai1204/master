@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Image, Text, Linking, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Home extends React.Component {
   static navigationOptions = {
     title: '首页',
     tabBarIcon: ({ tintColor }) =>
-      <Icon name="md-information-circle" size={25} color={tintColor} />,
+      <Icon name="home" size={25} color={tintColor} />,
     headerRight: (
       <Icon.Button
-        name="logo-github"
+        name="home"
         backgroundColor="transparent"
         underlayColor="transparent"
         activeOpacity={0.8}
@@ -20,7 +20,7 @@ class Home extends React.Component {
   render() {
     return (
       <View>
-        <text>Home</text>
+        <Text>Home</Text>
       </View>
     );
   }

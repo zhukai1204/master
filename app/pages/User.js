@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Image, Text, Linking, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class User extends React.Component {
   static navigationOptions = {
     title: '我的',
     tabBarIcon: ({ tintColor }) =>
-      <Icon name="md-information-circle" size={25} color={tintColor} />,
+      <Icon name="user" size={25} color={tintColor} />,
     headerRight: (
       <Icon.Button
-        name="logo-github"
+        name="user"
         backgroundColor="transparent"
         underlayColor="transparent"
         activeOpacity={0.8}
@@ -20,7 +20,7 @@ class User extends React.Component {
   render() {
     return (
       <View>
-        <text>User</text>
+        <Text>User</Text>
       </View>
     );
   }
