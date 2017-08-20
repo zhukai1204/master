@@ -50,21 +50,12 @@ const App = StackNavigator(
   {
     Home: {
       screen: TabContainer,
-      navigationOptions: {
-        headerLeft: null
-      }
     },
     Master: {
       screen: Master,
-      navigationOptions: {
-        headerLeft: null
-      }
     },
     User: {
       screen: User,
-      navigationOptions: {
-        headerLeft: null
-      }
     },
   },
   {
