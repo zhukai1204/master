@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Text, Linking, View ,ScrollView, Dimensions} from 'react-native';
+import { StyleSheet, Image, Text, Linking, View ,ScrollView, Dimensions,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 import TouchAbleButton from '../components/TouchAbleButton'
@@ -40,7 +40,7 @@ class Home extends React.Component {
     		        </View>
     		     </Swiper>
              <View style={styles.notice}>
-              <Icon name="volume-up" size={12} />
+              <Icon name="volume-up" size={18} />
               <Swiper  horizontal={false} autoplay={true} loop={true} showsPagination={false}>
                 <View>
                   <Text style={styles.noticeItem}>123456</Text>
@@ -60,32 +60,32 @@ class Home extends React.Component {
             </View>
   		     <View style={styles.gameArean}>
             <View style={styles.gameAreanRow}>
-              <View style={styles.gameAreanItem}>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
-              <View style={styles.gameAreanItem}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
-              <View style={styles.gameAreanItem}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={styles.gameAreanRow}>
-              <View style={styles.gameAreanItem}>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
-              <View style={styles.gameAreanItem}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
-              <View style={styles.gameAreanItem}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
                 <Text style={styles.gameAreanItemName}>秒速赛车</Text>
-              </View>
+              </TouchableOpacity>
             </View>
   		     </View>
           </ScrollView>
@@ -116,11 +116,11 @@ var styles = StyleSheet.create({
     backgroundColor:'#fff',
     flexDirection:'row',
     alignItems:'center',
-    height:14,
+    height:20,
     paddingLeft:3
   },
   noticeItem:{
-    fontSize:12,
+    fontSize:16,
     paddingLeft:3
   },
   hotGameTitle:{
