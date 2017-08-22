@@ -20,6 +20,7 @@ import Home from '../pages/Home';
 import Master from '../pages/Master';
 import User from '../pages/User';
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 const TabContainer = TabNavigator(
   {
@@ -60,6 +61,9 @@ const App = StackNavigator(
     },
     Login:{
       screen: Login
+    },
+    Register:{ 
+      screen: Register
     }
   },
   {
