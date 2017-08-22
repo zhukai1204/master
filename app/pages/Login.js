@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Text, Linking, View } from 'react-native';
+import { StyleSheet, Image, Text, Linking, View ,ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Login extends React.Component {
@@ -9,9 +9,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>登陆</Text>
-      </View>
+      <ScrollView>
+      </ScrollView>
     );
   }
 }
