@@ -34,10 +34,54 @@ class Home extends React.Component {
     		          <Image style={styles.swiperImage} source={require('../img/home/banner/3.jpg')}/>
     		        </View>
     		     </Swiper>
+             <View style={styles.notice}>
+              <Icon name="volume-up" size={12} />
+              <Swiper  horizontal={false} autoplay={true} loop={true} showsPagination={false}>
+                <View>
+                  <Text style={styles.noticeItem}>123456</Text>
+                </View>
+                <View>
+                  <Text style={styles.noticeItem}>789asdff</Text>
+                </View>
+                <View>
+                  <Text style={styles.noticeItem}>asdfasdfasd</Text>
+                </View>
+             </Swiper>
+            </View>
            </View>
-  		     <View style={{flex:1}}>
-            <Image style={{width:296/4,height:96/4}} source={require('../img/comm/logo.png')} />
-            <Image style={{width:296/4,height:96/4}} source={require('../img/comm/logo.png')} />
+            <View style={styles.hotGameTitle}>
+              <Icon name="gamepad" size={26} />
+              <Text style={styles.hotGameTitleText}>热门游戏</Text>
+            </View>
+  		     <View style={styles.gameArean}>
+            <View style={styles.gameAreanRow}>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+            </View>
+            <View style={styles.gameAreanRow}>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+              <View style={styles.gameAreanItem}>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
+                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+              </View>
+            </View>
   		     </View>
           </ScrollView>
 		</View>
@@ -62,6 +106,60 @@ var styles = StyleSheet.create({
   },
   slide: {
     flex: 1,
+  },
+  notice:{
+    backgroundColor:'#fff',
+    flexDirection:'row',
+    alignItems:'center',
+    height:14,
+    paddingLeft:3
+  },
+  noticeItem:{
+    fontSize:12,
+    paddingLeft:3
+  },
+  hotGameTitle:{
+    flexDirection:'row',
+    alignItems:'center',
+    paddingLeft:3,
+    borderBottomWidth:1,
+    borderStyle:'solid',
+    borderBottomColor:'rgba(0,0,0,.2)'
+  },
+  hotGameTitleIcon:{
+
+  },
+  hotGameTitleText:{
+    fontSize:14,
+    fontWeight:'bold',
+    paddingLeft:3
+  },
+  gameArean:{
+    paddingTop:5
+  },
+  gameAreanRow:{
+    flexDirection:'row',
+    justifyContent:'space-around'
+  },
+  gameAreanItem:{
+    margin:5,
+    padding:10,
+    backgroundColor:'rgba(255,255,255,.5)',
+    borderStyle:'solid',
+    borderWidth:1,
+    borderColor:'#fff',
+    borderRadius:5
+  },
+  gameAreanItemImg:{
+    width:60,
+    height:60
+  },
+  gameAreanItemName:{
+    fontSize:13,
+    fontWeight:'bold',
+    textAlign:'center',
+    marginTop:5
+
   },
   text: {
     color: '#fff',
