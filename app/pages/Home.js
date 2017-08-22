@@ -13,7 +13,7 @@ class Home extends React.Component {
     tabBarLabel:'首页',
     tabBarIcon: ({ tintColor }) =>
       <Icon name="home" size={25} color={tintColor} />,
-    headerLeft:(<Image style={{width:296/4,height:96/4}} source={require('../img/comm/logo.png')} />),
+    //headerLeft:(<Image style={{width:296/4,height:96/4}} source={require('../img/comm/logo.png')} />),
     headerRight:(<View style={{flexDirection:'row', flex:1,alignItems:'center'}}>
                   <TouchAbleButton onPress={()=>navigation.navigate('Login')} style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'登陆'} />
                   <TouchAbleButton onPress={()=>navigation.navigate('Register')} style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'注册'} />
