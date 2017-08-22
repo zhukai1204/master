@@ -19,6 +19,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
 import Master from '../pages/Master';
 import User from '../pages/User';
+import Login from '../pages/Login';
 
 const TabContainer = TabNavigator(
   {
@@ -57,6 +58,9 @@ const App = StackNavigator(
     User: {
       screen: User,
     },
+    Login:{
+      screen: Login
+    }
   },
   {
     headerMode: 'screen',
