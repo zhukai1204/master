@@ -96,6 +96,7 @@ var styles = StyleSheet.create({
     right:-15,
     width:50,
     height:24,
+    paddingTop:2,
     borderWidth:1,
     borderStyle:'solid',
     borderColor:'#fff',
@@ -103,8 +104,8 @@ var styles = StyleSheet.create({
 
   },
   active:{
-    width:20,
-    height:20,
+    width:18,
+    height:18,
     marginLeft:10
   },
   swiper:{
@@ -118,7 +119,6 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   gameArean:{
-    paddingTop:5
   },
   gameAreanRow:{
     flexDirection:'row',
