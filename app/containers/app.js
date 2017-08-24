@@ -21,6 +21,7 @@ import Master from '../pages/Master';
 import User from '../pages/User';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Actives from '../pages/Actives';
 
 const TabContainer = TabNavigator(
   {
@@ -64,7 +65,10 @@ const App = StackNavigator(
     },
     Register:{ 
       screen: Register
-    }
+    },
+    Actives:{
+      screen:Actives
+    },
   },
   {
     headerMode: 'screen',
