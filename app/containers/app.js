@@ -18,6 +18,7 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
 import Master from '../pages/Master';
+import Find from '../pages/Find';
 import User from '../pages/User';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -28,6 +29,7 @@ const TabContainer = TabNavigator(
   {
     Home: { screen: Home },
     Master: { screen: Master },
+    Find: { screen: Find },
     User: { screen: User },
   },
   {
@@ -57,6 +59,9 @@ const App = StackNavigator(
     },
     Master: {
       screen: Master,
+    },
+    Find: {
+      screen: Find,
     },
     User: {
       screen: User,
