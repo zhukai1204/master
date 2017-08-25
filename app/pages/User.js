@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Text, Linking, View } from 'react-native';
+import { StyleSheet, Image, Text, Linking, View, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class User extends React.Component {
@@ -19,9 +19,9 @@ class User extends React.Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
         <Text>User</Text>
-      </View>
+      </ScrollView>
     );
   }
 }

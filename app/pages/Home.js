@@ -53,6 +53,20 @@ class Home extends React.Component {
     		        </View>
     		     </Swiper>
             </View>
+            <View style={styles.notice}>
+               <Icon name="volume-up" size={12 } color={'#e23a3a'}/>
+               <Swiper  horizontal={false} autoplay={true} loop={true} showsPagination={false}>
+                 <View>
+                   <Text style={styles.noticeItem}>123456</Text>
+                 </View>
+                 <View>
+                   <Text style={styles.noticeItem}>789asdff</Text>
+                 </View>
+                 <View>
+                   <Text style={styles.noticeItem}>asdfasdfasd</Text>
+                 </View>
+              </Swiper>
+             </View>
   		     <View style={styles.gameArean}>
             <View style={styles.gameAreanRow}>
               <TouchableOpacity style={styles.gameAreanItem}>
@@ -73,6 +87,41 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
   		     </View>
+           <View style={styles.news}>
+            <View style={styles.newsHeader}>
+              <Text>资讯</Text>
+              <TouchableOpacity style={styles.newsMore} onPress={()=>this.onNav('News')}>
+                <Text style={{color:'#999'}}>更多</Text>
+                <Icon name="angle-right" size={25} color={'#999'} />
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity style={styles.newsItem}>
+              <View style={styles.newsContent}>
+                <Text>阿拉斯加地方辣椒素；伦敦发生的纠纷啊；是的看法；发觉；快点放假</Text>
+                <View style={styles.newsInfo}>
+                  <View style={styles.newsFromTime}>
+                    <Text style={styles.newsFrom}>云端球课</Text>
+                    <Text style={styles.newsTime}>08-25 12:35</Text>
+                  </View>
+                  <Text style={styles.newsReaded}>阅读 98989</Text>
+                </View>
+              </View>
+              <Image source={require('../img/news/timg.jpg')} style={styles.newsIcon}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.newsItem}>
+              <View style={styles.newsContent}>
+                <Text>阿拉斯加地方辣椒素；伦敦发生的纠纷啊；是的看法；发觉；快点放假</Text>
+                <View style={styles.newsInfo}>
+                  <View style={styles.newsFromTime}>
+                    <Text style={styles.newsFrom}>云端球课</Text>
+                    <Text style={styles.newsTime}>08-25 12:35</Text>
+                  </View>
+                  <Text style={styles.newsReaded}>阅读 98989</Text>
+                </View>
+              </View>
+              <Image source={require('../img/news/timg.jpg')} style={styles.newsIcon}/>
+            </TouchableOpacity>
+           </View>
           </ScrollView>
 		</View>
     );
@@ -118,6 +167,19 @@ var styles = StyleSheet.create({
   slide: {
     flex: 1,
   },
+  notice:{
+     backgroundColor:'#fff',
+     flexDirection:'row',
+     alignItems:'center',
+     height:20,
+     paddingLeft:10
+   },
+   noticeItem:{
+     fontSize:10,
+     paddingLeft:3,
+     color:'#999',
+     lineHeight:20
+   },
   gameArean:{
   },
   gameAreanRow:{
@@ -126,7 +188,7 @@ var styles = StyleSheet.create({
   },
   gameAreanItem:{
     margin:5,
-    padding:10,
+    padding:5,
     backgroundColor:'rgba(255,255,255,.5)',
     borderStyle:'solid',
     borderWidth:1,
@@ -167,6 +229,57 @@ var styles = StyleSheet.create({
     textAlign:'center',
     paddingLeft:5,
     paddingRight:5,
+  },
+  news:{
+    paddingLeft:10,
+    paddingRight:10
+  },
+  newsHeader:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    borderColor:'#e23a3a',
+    borderLeftWidth:4,
+    borderStyle:'solid',
+    paddingLeft:6
+  },
+  newsMore:{
+    flexDirection:'row',
+    alignItems:'center'
+  },
+  newsItem:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginTop:12,
+    paddingBottom:12,
+    borderStyle:'solid',
+    borderColor:'#cdcdcd',
+    borderBottomWidth:1
+  },
+  newsContent:{
+    width:width-120,
+    justifyContent:'space-between'
+  },
+  newsInfo:{
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  newsFromTime:{
+    flexDirection:'row'
+  },
+  newsFrom:{
+    color:'#547bca'
+  },
+  newsTime:{
+    color:'#999',
+    marginLeft:12
+  },
+  newsReaded:{
+    color:'#999'
+  },
+  newsIcon:{
+    width:80,
+    height:60
   },
   text: {
     color: '#fff',
