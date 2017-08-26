@@ -22,8 +22,10 @@ import Find from '../pages/Find';
 import User from '../pages/User';
 import Login from '../pages/user/Login';
 import Register from '../pages/Register';
+import Protocol from '../pages/user/Protocol'
 import Actives from '../pages/Actives';
 import News from '../pages/News';
+
 
 const TabContainer = TabNavigator(
   {
@@ -72,11 +74,14 @@ const App = StackNavigator(
     Register:{ 
       screen: Register
     },
+    Protocol:{
+      screen: Protocol
+    },
     Actives:{
-      screen:Actives
+      screen: Actives
     },
     News:{
-      screen:News
+      screen: News
     }
   },
   {
