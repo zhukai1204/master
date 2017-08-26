@@ -5,7 +5,8 @@
  */
 
 import { AppRegistry } from 'react-native';
-import Dstj from './app/root'
+//import Dstj from './app/root'
+import App from './app/containers/app';
 
 
-AppRegistry.registerComponent('dstj', () => Dstj);
+AppRegistry.registerComponent('dstj', () => App);

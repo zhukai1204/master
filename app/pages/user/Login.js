@@ -34,11 +34,11 @@ class LoginPhone extends React.Component {
        <View style={styles.content}>
           <View style={styles.inputItem}>
             <Icon name="mobile" size={20} color={'#999'} />
-            <TextInput style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入手机号'} placeholderTextColor={'#d9d9d9'}/>
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入手机号'} placeholderTextColor={'#d9d9d9'}/>
           </View>
           <View style={styles.inputItem}>
             <Icon name="lock" size={20} color={'#999'} />
-            <TextInput style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
             <Icon name="eye" size={20} color={'#999'} />
           </View>
           <View style={styles.loginFinds}>
@@ -55,19 +55,24 @@ class Login extends React.Component {
   static navigationOptions = ({navigation}) => ({
     title: '欢迎登陆',
     headerBackTitle:'登录',
+    shadowHidden:true,
+    headerStyle:{shadowColor: 'transparent',backgroundColor:'#1d97f0', elevation:0},
     headerRight:(<TouchAbleButton onPress={()=>navigation.navigate('Register')} text={'注册'} style={{color:'#fff', paddingLeft:10,paddingRight:10}} />)
   });
 
   render() {
     return (
-      <ScrollableTabView 
-        tabBarBackgroundColor={'#1d97f0'} 
-        tabBarActiveTextColor={'#fff'} 
-        tabBarUnderlineStyle={{backgroundColor:'#fff'}}
-        tabBarInactiveTextColor={'#fff'}>
-        <LoginUserName tabLabel="用户名登陆" />
-        <LoginPhone tabLabel="手机号登录" />
-      </ScrollableTabView>
+      <View style={{backgroundColor:'#fff',flex:1}}>
+        <ScrollableTabView 
+          tabBarBackgroundColor={'#1d97f0'} 
+          tabBarActiveTextColor={'#fff'} 
+          tabBarUnderlineStyle={{backgroundColor:'#fff'}}
+          tabBarInactiveTextColor={'#fff'}
+          style={{borderWidth:0}}>
+          <LoginUserName tabLabel="用户名登陆" />
+          <LoginPhone tabLabel="手机号登录" />
+        </ScrollableTabView>
+      </View>
     );
   }
 }
@@ -77,7 +82,7 @@ var styles = StyleSheet.create({
     flex:1,
     padding:10,
     backgroundColor:'#fff',
-    paddingTop:20
+    paddingTop:20,
   },
   inputItem:{
     flexDirection:'row',
@@ -91,7 +96,7 @@ var styles = StyleSheet.create({
   },
   input:{
     marginLeft:6,
-    flex:1
+    flex:1,
   },
   loginFinds:{
     flexDirection:'row',

@@ -95,12 +95,13 @@ var styles = StyleSheet.create({
     borderBottomWidth:1
   },
   avatar:{
-    width:40,
-    height:40,
-    borderRadius:20,
+    width:60,
+    height:60,
+    borderRadius:30,
     marginRight:14
   },
   logOrReText:{
+    fontSize:16,
     fontWeight:'bold'
   },
   subHeader:{

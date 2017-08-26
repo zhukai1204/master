@@ -31,8 +31,8 @@ class Home extends React.Component {
       navigate(page);
     }
   }
+
   render() {
-    
     return (
       	<View style={styles.content}>
 	      	<StatusBar backgroundColor={'#000'} barStyle={'light-content'}/>
@@ -70,20 +70,20 @@ class Home extends React.Component {
   		     <View style={styles.gameArean}>
             <View style={styles.gameAreanRow}>
               <TouchableOpacity style={styles.gameAreanItem}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
-                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/1.png')} />
+                <Text style={styles.gameAreanItemName}>PC蛋蛋</Text>
                 <View style={styles.gameAreanItemHotTitleCon}>
                   <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.gameAreanItem}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
-                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/10.png')} />
+                <Text style={styles.gameAreanItemName}>重庆时时彩</Text>
                 <Text style={styles.gameAreanItemTitle}>用户喜中980万</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.gameAreanItem}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/ssc.png')} />
-                <Text style={styles.gameAreanItemName}>秒速赛车</Text>
+                <Image style={styles.gameAreanItemImg} source={require('../img/game/20.png')} />
+                <Text style={styles.gameAreanItemName}>北京赛车PK0</Text>
               </TouchableOpacity>
             </View>
   		     </View>
@@ -208,6 +208,7 @@ var styles = StyleSheet.create({
 
   },
   gameAreanItemHotTitleCon:{
+    backgroundColor:'#ff8c00',
     borderWidth:1,
     borderStyle:'solid',
     borderColor:'#ff8c00',
@@ -215,7 +216,6 @@ var styles = StyleSheet.create({
     overflow:'hidden'
   },
   gameAreanItemHotTitle:{
-    backgroundColor:'#ff8c00',
     color:'#fff',
     fontSize:10,
     textAlign:'center',
