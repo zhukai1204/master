@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, Text, Linking, View ,ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Image, Text, Linking, View ,ScrollView, TouchableOpacity, SectionList} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
@@ -13,65 +13,75 @@ class GeneralMaster extends React.Component{
       navigate(page);
     }
   }
+  renderHeader(){
+    return (
+      <View>
+      <View style={styles.rank}>
+        <TouchableOpacity style={styles.rankItem}>
+          <Image source={require('../img/comm/icon/rankpower.png')} style={{width:50,height:40}}/>
+          <Text style={styles.rankItemName}>实力榜</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.rankItem}>
+          <Image source={require('../img/comm/icon/rankred.png')} style={{width:46,height:40}}/>
+          <Text style={styles.rankItemName}>连红榜</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.rankItem}>
+          <Image source={require('../img/comm/icon/rankward.png')} style={{width:40,height:40}}/>
+          <Text style={styles.rankItemName}>奖励榜</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.masters}>
+        <View style={styles.mastersHeader}>
+            <Text>爆热大神</Text>
+            <TouchableOpacity style={styles.mastersMore} onPress={()=>this.onNav('News')}>
+              <Text style={{color:'#999'}}>更多</Text>
+              <Icon name="angle-right" size={25} color={'#999'} />
+            </TouchableOpacity>
+        </View>
+        <View style={styles.masterItemArean}>
+          <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+          <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+           <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+           <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+           <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+           <View style={styles.masterItem}>
+            <View style={styles.redCoin}></View>
+            <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
+            <Text style={styles.masterName}>哈哈哈</Text>
+          </View>
+        </View>
+      </View>
+      </View>
+    );
+  }
   render() {
     return (
-      <ScrollView style={styles.content}>
-        <View style={styles.rank}>
-          <TouchableOpacity style={styles.rankItem}>
-            <Image source={require('../img/comm/icon/rankpower.png')} style={{width:50,height:40}}/>
-            <Text style={styles.rankItemName}>实力榜</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.rankItem}>
-            <Image source={require('../img/comm/icon/rankred.png')} style={{width:46,height:40}}/>
-            <Text style={styles.rankItemName}>连红榜</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.rankItem}>
-            <Image source={require('../img/comm/icon/rankward.png')} style={{width:40,height:40}}/>
-            <Text style={styles.rankItemName}>奖励榜</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.masters}>
-          <View style={styles.mastersHeader}>
-              <Text>爆热大神</Text>
-              <TouchableOpacity style={styles.mastersMore} onPress={()=>this.onNav('News')}>
-                <Text style={{color:'#999'}}>更多</Text>
-                <Icon name="angle-right" size={25} color={'#999'} />
-              </TouchableOpacity>
-          </View>
-          <View style={styles.masterItemArean}>
-            <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-            <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-             <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-             <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-             <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-             <View style={styles.masterItem}>
-              <View style={styles.redCoin}></View>
-              <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
-              <Text style={styles.masterName}>哈哈哈</Text>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
+      <SectionList style={styles.content} 
+        ListHeaderComponent={this.renderHeader} 
+        renderItem={({item}) => <ListItem title={item.title} />}
+        sections={[]}>
+        
+      </SectionList>
     );    
   }
 }
