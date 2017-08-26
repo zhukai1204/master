@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Image, Text, Linking, View ,ScrollView, Dimensions,TouchableOpacity, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
-import TouchAbleButton from '../components/TouchAbleButton'
+import TouchAbleButton from '../components/TouchAbleButton';
 var {hieght, width} = Dimensions.get('window'); 
 var swiperRatio = 680/width;
 

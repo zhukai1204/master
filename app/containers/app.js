@@ -20,7 +20,7 @@ import Home from '../pages/Home';
 import Master from '../pages/Master';
 import Find from '../pages/Find';
 import User from '../pages/User';
-import Login from '../pages/Login';
+import Login from '../pages/user/Login';
 import Register from '../pages/Register';
 import Actives from '../pages/Actives';
 import News from '../pages/News';
