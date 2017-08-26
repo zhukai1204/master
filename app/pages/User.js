@@ -30,7 +30,7 @@ class User extends React.Component {
   }
   render() {
     return (
-      <ScrollView style={styles.content}>
+      <View style={styles.content}>
         <TouchableOpacity style={styles.userHeader} onPress={()=>this.onNav('Login')}>
           <Image source={require('../img/news/timg.jpg')} style={styles.avatar}/>
           <Text style={styles.logOrReText}>登陆／注册</Text>
@@ -75,7 +75,7 @@ class User extends React.Component {
             <Text>取款</Text>
           </View>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
