@@ -11,14 +11,11 @@ class Home extends React.Component {
   static navigationOptions = ({ navigation }) =>({
     title:'首页',
     tabBarLabel:'首页',
-    header:null,
+    //header:null,
+    headerStyle:{shadowColor: 'transparent',backgroundColor:'#000', elevation:0},
     tabBarIcon: ({ tintColor }) =>
       <Icon name="home" size={25} color={tintColor} />,
-    //headerLeft:(<Image style={{width:296/4,height:96/4}} source={require('../img/comm/logo.png')} />),
-    headerRight:(<View style={{flexDirection:'row', flex:1,alignItems:'center'}}>
-                  <TouchAbleButton onPress={()=>navigation.navigate('Login')} style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'登陆'} />
-                  <TouchAbleButton onPress={()=>navigation.navigate('Register')} style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'注册'} />
-                  </View>),
+    
   });
 
   //<TouchAbleButton style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'试玩'} />
@@ -54,7 +51,7 @@ class Home extends React.Component {
     		     </Swiper>
             </View>
             <View style={styles.notice}>
-               <Icon name="volume-up" size={12 } color={'#e23a3a'}/>
+               <Icon name="volume-up" size={18 } color={'#e23a3a'}/>
                <Swiper  horizontal={false} autoplay={true} loop={true} showsPagination={false}>
                  <View>
                    <Text style={styles.noticeItem}>123456</Text>
@@ -175,7 +172,7 @@ var styles = StyleSheet.create({
      paddingLeft:10
    },
    noticeItem:{
-     fontSize:10,
+     fontSize:12,
      paddingLeft:3,
      color:'#999',
      lineHeight:20
