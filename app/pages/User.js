@@ -10,10 +10,10 @@ class User extends React.Component {
     headerRight: (
       <View style={{flexDirection:'row', flex:1,alignItems:'center'}}>
         <TouchableOpacity style={{marginRight:10}}>
-          <Image source={require('../img/comm/service.png')} style={{width:22, height:22}} /> 
+          <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>
         <TouchableOpacity style={{marginRight:10}}>
-          <Image source={require('../img/comm/message.png')} style={{width:20, height:20}} /> 
+          <Image source={require('../img/comm/message.png')} style={{width:24, height:24}} /> 
         </TouchableOpacity>
       </View>
       

@@ -3,20 +3,20 @@ import { StyleSheet, Image, Text, Linking, View ,TextInput, TouchableOpacity} fr
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TouchAbleButton from '../../components/TouchAbleButton';
-
+import Style from '../../utils/Style';
 
 class LoginUserName extends React.Component {
   render() {
     return (
-      <View style={styles.content}>
+      <View style={[Style.content, styles.content]}>
           <View style={styles.inputItem}>
-            <Icon name="user-o" size={20} color={'#999'} />
-            <TextInput style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入用户名'} placeholderTextColor={'#d9d9d9'}/>
+            <Icon name="user-o" size={24} color={'#999'} />
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入用户名'} placeholderTextColor={'#d9d9d9'}/>
           </View>
           <View style={styles.inputItem}>
-            <Icon name="lock" size={20} color={'#999'} />
-            <TextInput style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
-            <Icon name="eye-slash" size={20} color={'#999'} />
+            <Icon name="lock" size={24} color={'#999'} />
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
+            <Icon name="eye-slash" size={24} color={'#999'} />
           </View>
           <View style={styles.loginFinds}>
             <TouchAbleButton text={'短信验证码登录'} style={styles.loginMsg} />
@@ -31,15 +31,15 @@ class LoginUserName extends React.Component {
 class LoginPhone extends React.Component {
   render() {
     return (
-       <View style={styles.content}>
+       <View style={[Style.content, styles.content]}>
           <View style={styles.inputItem}>
-            <Icon name="mobile" size={20} color={'#999'} />
+            <Icon name="mobile" size={24} color={'#999'} />
             <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入手机号'} placeholderTextColor={'#d9d9d9'}/>
           </View>
           <View style={styles.inputItem}>
-            <Icon name="lock" size={20} color={'#999'} />
+            <Icon name="lock" size={24} color={'#999'} />
             <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
-            <Icon name="eye" size={20} color={'#999'} />
+            <Icon name="eye" size={24} color={'#999'} />
           </View>
           <View style={styles.loginFinds}>
             <TouchAbleButton text={'短信验证码登录'} style={styles.loginMsg} />
@@ -62,7 +62,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor:'#fff',flex:1}}>
+      <View style={Style.content}>
         <ScrollableTabView 
           tabBarBackgroundColor={'#1d97f0'} 
           tabBarActiveTextColor={'#fff'} 
@@ -79,9 +79,7 @@ class Login extends React.Component {
 
 var styles = StyleSheet.create({
   content:{
-    flex:1,
     padding:10,
-    backgroundColor:'#fff',
     paddingTop:20,
   },
   inputItem:{

@@ -21,10 +21,10 @@ import Master from '../pages/Master';
 import Find from '../pages/Find';
 import User from '../pages/User';
 import Login from '../pages/user/Login';
-import Register from '../pages/Register';
+import Register from '../pages/user/Register';
 import Protocol from '../pages/user/Protocol'
-import Actives from '../pages/Actives';
-import News from '../pages/News';
+import Actives from '../pages/home/Actives';
+import News from '../pages/home/News';
 
 
 const TabContainer = TabNavigator(

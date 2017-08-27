@@ -101,14 +101,9 @@ class Master extends React.Component {
     tabBarLabel:'大神',
     tabBarIcon: ({ tintColor }) =>
       <Icon name="magic" size={25} color={tintColor} />,
-    headerRight: (
-      <Icon.Button
-        name="magic"
-        backgroundColor="transparent"
-        underlayColor="transparent"
-        activeOpacity={0.8}
-      />
-    )
+    headerRight:(<TouchableOpacity style={{marginRight:10}}>
+          <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
+        </TouchableOpacity>)
   };
   render() {
     return (

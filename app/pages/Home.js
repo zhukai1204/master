@@ -15,7 +15,9 @@ class Home extends React.Component {
     headerStyle:{shadowColor: 'transparent',backgroundColor:'#000', elevation:0},
     tabBarIcon: ({ tintColor }) =>
       <Icon name="home" size={25} color={tintColor} />,
-    
+    headerRight:(<TouchableOpacity style={{marginRight:10}}>
+          <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
+        </TouchableOpacity>)
   });
 
   //<TouchAbleButton style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'试玩'} />
@@ -138,7 +140,7 @@ var styles = StyleSheet.create({
     backgroundColor:'rgba(255,255,255,.2)',
     position:'absolute',
     zIndex:2,
-    top:25,
+    top:16,
     right:-15,
     width:50,
     height:24,
