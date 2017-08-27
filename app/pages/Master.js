@@ -105,7 +105,12 @@ class Master extends React.Component {
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>)
   };
-  render() {
+  render(){
+    return (
+      <GeneralMaster navigation={this.props.navigation} />
+    );
+  }
+  /*render() {
     return (
      <ScrollableTabView 
         tabBarBackgroundColor={'#fff'} 
@@ -117,7 +122,7 @@ class Master extends React.Component {
         <AuthenMaster tabLabel="认证大神" navigation={this.props.navigation}/>
       </ScrollableTabView>
     );
-  }
+  }*/
 }
 
 
