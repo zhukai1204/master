@@ -33,17 +33,17 @@ class GeneralMaster extends React.Component{
       <View style={styles.masters}>
         <View style={styles.mastersHeader}>
             <Text>爆热大神</Text>
-            <TouchableOpacity style={styles.mastersMore} onPress={()=>this.onNav('News')}>
+            <TouchableOpacity style={styles.mastersMore} onPress={()=>this.onNav('Masters')}>
               <Text style={{color:'#999'}}>更多</Text>
               <Icon name="angle-right" size={25} color={'#999'} />
             </TouchableOpacity>
         </View>
         <View style={styles.masterItemArean}>
-          <View style={styles.masterItem}>
+          <TouchableOpacity style={styles.masterItem}>
             <View style={styles.redCoin}></View>
             <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
             <Text style={styles.masterName}>哈哈哈</Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.masterItem}>
             <View style={styles.redCoin}></View>
             <Image  style={styles.masterAvatar} source={require('../img/news/timg.jpg')}/>
@@ -77,7 +77,7 @@ class GeneralMaster extends React.Component{
   render() {
     return (
       <SectionList style={styles.content} 
-        ListHeaderComponent={this.renderHeader} 
+        ListHeaderComponent={(this.renderHeader.bind(this))} 
         renderItem={({item}) => <ListItem title={item.title} />}
         sections={[]}>
         

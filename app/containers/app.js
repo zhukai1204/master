@@ -17,14 +17,18 @@
  */
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
+import Actives from '../pages/home/Actives';
+import News from '../pages/home/News';
+
 import Master from '../pages/Master';
+import Masters from '../pages/master/Masters'
 import Find from '../pages/Find';
+
 import User from '../pages/User';
 import Login from '../pages/user/Login';
 import Register from '../pages/user/Register';
 import Protocol from '../pages/user/Protocol'
-import Actives from '../pages/home/Actives';
-import News from '../pages/home/News';
+
 
 
 const TabContainer = TabNavigator(
@@ -59,8 +63,17 @@ const App = StackNavigator(
     Home: {
       screen: TabContainer,
     },
+    Actives:{
+      screen: Actives
+    },
+    News:{
+      screen: News
+    },
     Master: {
       screen: Master,
+    },
+    Masters: {
+      screen: Masters
     },
     Find: {
       screen: Find,
@@ -77,12 +90,7 @@ const App = StackNavigator(
     Protocol:{
       screen: Protocol
     },
-    Actives:{
-      screen: Actives
-    },
-    News:{
-      screen: News
-    }
+    
   },
   {
     headerMode: 'screen',

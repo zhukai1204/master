@@ -36,14 +36,14 @@ class User extends React.Component {
           <Text style={styles.logOrReText}>登陆／注册</Text>
         </TouchableOpacity>
         <View style={styles.subHeader}>
-          <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
+          <TouchableOpacity style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
             <Image source={require('../img/comm/level.png')} style={[styles.userIcon, styles.userIcon1]}/>
             <Text>等级中心</Text>
-          </View>
-          <View style={styles.subHeaderItem}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.subHeaderItem}>
             <Image source={require('../img/comm/inte.png')} style={[styles.userIcon, styles.userIcon2]}/>
             <Text>积分中心</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={[styles.subHeader, styles.subHeaderItemBorderMargin]}>
           <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight, styles.subContentCenter]}>
@@ -66,14 +66,14 @@ class User extends React.Component {
           </View>
         </View>
         <View style={styles.subHeader}>
-          <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
+          <TouchableOpacity style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
             <Image source={require('../img/comm/rech.png')} style={[styles.userIcon3]}/>
             <Text>充值</Text>
-          </View>
-          <View style={styles.subHeaderItem}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.subHeaderItem}>
             <Image source={require('../img/comm/draw.png')} style={[styles.userIcon4]}/>
             <Text>取款</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
