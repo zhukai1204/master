@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, Text, Linking, View, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Style from '../utils/Style';
 
 class User extends React.Component {
   static navigationOptions = {
@@ -30,7 +31,7 @@ class User extends React.Component {
   }
   render() {
     return (
-      <View style={styles.content}>
+      <View style={Style.content}>
         <TouchableOpacity style={styles.userHeader} onPress={()=>this.onNav('Login')}>
           <Image source={require('../img/news/timg.jpg')} style={styles.avatar}/>
           <Text style={styles.logOrReText}>登陆／注册</Text>

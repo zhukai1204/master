@@ -22,6 +22,61 @@ class Home extends React.Component {
 
   //<TouchAbleButton style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'试玩'} />
   
+  constructor(props) {
+      super(props);
+      this.state = {
+          swiperShow:false,
+      };
+  }
+
+  componentDidMount(){
+      setTimeout(()=>{
+          this.setState({swiperShow:true});
+      },0)
+  }
+
+
+  renderSwiper=()=>{
+      if(this.state.swiperShow){
+          return (
+              <View>
+                <View style={styles.swiper}>
+                  <TouchableOpacity style={styles.moreActives} onPress={()=>this.onNav('Actives')}>
+                    <Image style={styles.active} source={require('../img/comm/active.png')}/>
+                  </TouchableOpacity>
+                  <Swiper  removeClippedSubviews={false} autoplay={true} loop={true} paginationStyle={{bottom:5,justifyContent:'flex-start'}} dotStyle={{backgroundColor:'#fff'}}>
+                    <View style={styles.slide}>
+                      <Image style={styles.swiperImage} source={require('../img/home/banner/active1.jpg')}/>
+                    </View>
+                    <View style={styles.slide}>
+                      <Image style={styles.swiperImage} source={require('../img/home/banner/active2.jpg')}/>
+                    </View>
+                    <View style={styles.slide}>
+                      <Image style={styles.swiperImage} source={require('../img/home/banner/active3.jpg')}/>
+                    </View>
+                 </Swiper>
+                </View>
+                <View style={styles.notice}>
+                   <Icon name="volume-up" size={18 } color={'#e23a3a'}/>
+                   <Swiper  removeClippedSubviews={false} horizontal={false} autoplay={true} loop={true} showsPagination={false}>
+                     <View>
+                       <Text style={styles.noticeItem}>123456</Text>
+                     </View>
+                     <View>
+                       <Text style={styles.noticeItem}>789asdff</Text>
+                     </View>
+                     <View>
+                       <Text style={styles.noticeItem}>asdfasdfasd</Text>
+                     </View>
+                  </Swiper>
+                 </View>
+              </View>
+          );
+      }else {
+          return <View style={{height:(280/swiperRatio)+20}}></View>;
+      }
+  }
+
   onNav(page, param) {
     const { navigate } = this.props.navigation;
     if(param){
@@ -36,41 +91,12 @@ class Home extends React.Component {
       	<View style={styles.content}>
 	      	<StatusBar backgroundColor={'#000'} barStyle={'light-content'}/>
           <ScrollView>
-            <View style={styles.swiper}>
-              <TouchableOpacity style={styles.moreActives} onPress={()=>this.onNav('Actives')}>
-                <Image style={styles.active} source={require('../img/comm/active.png')}/>
-              </TouchableOpacity>
-              <Swiper  autoplay={true} loop={true} paginationStyle={{bottom:5,justifyContent:'flex-start'}} dotStyle={{backgroundColor:'#fff'}}>
-    		        <View style={styles.slide}>
-    		          <Image style={styles.swiperImage} source={require('../img/home/banner/1.jpg')}/>
-    		        </View>
-    		        <View style={styles.slide}>
-    		          <Image style={styles.swiperImage} source={require('../img/home/banner/2.jpg')}/>
-    		        </View>
-    		        <View style={styles.slide}>
-    		          <Image style={styles.swiperImage} source={require('../img/home/banner/3.jpg')}/>
-    		        </View>
-    		     </Swiper>
-            </View>
-            <View style={styles.notice}>
-               <Icon name="volume-up" size={18 } color={'#e23a3a'}/>
-               <Swiper  horizontal={false} autoplay={true} loop={true} showsPagination={false}>
-                 <View>
-                   <Text style={styles.noticeItem}>123456</Text>
-                 </View>
-                 <View>
-                   <Text style={styles.noticeItem}>789asdff</Text>
-                 </View>
-                 <View>
-                   <Text style={styles.noticeItem}>asdfasdfasd</Text>
-                 </View>
-              </Swiper>
-             </View>
+           {this.renderSwiper()}
   		     <View style={styles.gameArean}>
             <View style={styles.gameAreanRow}>
               <TouchableOpacity style={styles.gameAreanItem}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/1.png')} />
-                <Text style={styles.gameAreanItemName}>PC蛋蛋</Text>
+                <Text style={styles.gameAreanItemName}>PC蛋蛋d</Text>
                 <View style={styles.gameAreanItemHotTitleCon}>
                   <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
                 </View>
@@ -134,7 +160,7 @@ var styles = StyleSheet.create({
   },
   content:{
   	flex:1,
-    backgroundColor:'#fff'
+    backgroundColor:'#fff',
   },
   moreActives:{
     backgroundColor:'rgba(255,255,255,.2)',

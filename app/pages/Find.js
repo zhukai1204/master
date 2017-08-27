@@ -21,7 +21,7 @@ class Find extends React.Component {
   render() {
     return (
       <View style={Style.content}>
-        <Text>Find</Text>
+        
       </View>
     );
   }
