@@ -10,7 +10,7 @@ class User extends React.Component {
       <Icon name="user" size={25} color={tintColor} />,
     headerRight: (
       <View style={{flexDirection:'row', flex:1,alignItems:'center'}}>
-        <TouchableOpacity style={{marginRight:10}}>
+        <TouchableOpacity style={{marginRight:10}} onPress={() => Linking.openURL('https://www.baidu.com')}>
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>
         <TouchableOpacity style={{marginRight:10}}>

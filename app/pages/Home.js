@@ -15,7 +15,7 @@ class Home extends React.Component {
     headerStyle:{shadowColor: 'transparent',backgroundColor:'#000', elevation:0},
     tabBarIcon: ({ tintColor }) =>
       <Icon name="home" size={25} color={tintColor} />,
-    headerRight:(<TouchableOpacity style={{marginRight:10}}>
+    headerRight:(<TouchableOpacity style={{marginRight:10}} onPress={() => Linking.openURL('https://www.baidu.com')}>
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>)
   });

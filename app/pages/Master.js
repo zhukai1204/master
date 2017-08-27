@@ -101,7 +101,7 @@ class Master extends React.Component {
     tabBarLabel:'大神',
     tabBarIcon: ({ tintColor }) =>
       <Icon name="magic" size={25} color={tintColor} />,
-    headerRight:(<TouchableOpacity style={{marginRight:10}}>
+    headerRight:(<TouchableOpacity style={{marginRight:10}} onPress={() => Linking.openURL('https://www.baidu.com')}>
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>)
   };
