@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Image, Text, Linking, View ,TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TouchAbleButton from '../../components/TouchAbleButton';
-import Style from '../../utils/Style';
+import Style from '../../utils/style';
 
 class Register extends React.Component {
   static navigationOptions = {

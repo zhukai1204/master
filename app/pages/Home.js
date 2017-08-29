@@ -80,7 +80,7 @@ class Home extends React.Component {
   onNav(page, param) {
     const { navigate } = this.props.navigation;
     if(param){
-      navigate(page, { param });
+      navigate(page, param);
     }else{
       navigate(page);
     }
@@ -94,19 +94,19 @@ class Home extends React.Component {
            {this.renderSwiper()}
   		     <View style={styles.gameArean}>
             <View style={styles.gameAreanRow}>
-              <TouchableOpacity style={styles.gameAreanItem}>
+              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:1})}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/1.png')} />
-                <Text style={styles.gameAreanItemName}>PC蛋蛋d</Text>
+                <Text style={styles.gameAreanItemName}>PC蛋蛋</Text>
                 <View style={styles.gameAreanItemHotTitleCon}>
                   <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.gameAreanItem}>
+              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:10})}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/10.png')} />
                 <Text style={styles.gameAreanItemName}>重庆时时彩</Text>
                 <Text style={styles.gameAreanItemTitle}>用户喜中980万</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.gameAreanItem}>
+              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:20})}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/20.png')} />
                 <Text style={styles.gameAreanItemName}>北京赛车PK0</Text>
               </TouchableOpacity>

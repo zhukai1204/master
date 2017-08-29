@@ -3,7 +3,7 @@ import { StyleSheet, Image, Text, Linking, View ,TextInput, TouchableOpacity} fr
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TouchAbleButton from '../../components/TouchAbleButton';
-import Style from '../../utils/Style';
+import Style from '../../utils/style';
 
 class LoginUserName extends React.Component {
   render() {

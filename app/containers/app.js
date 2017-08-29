@@ -19,6 +19,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Home from '../pages/Home';
 import Actives from '../pages/home/Actives';
 import News from '../pages/home/News';
+import Bet from '../pages/home/Bet';
 
 import Master from '../pages/Master';
 import Masters from '../pages/master/Masters'
@@ -60,27 +61,22 @@ const TabContainer = TabNavigator(
 
 const App = StackNavigator(
   {
-    Home: {
+    Index: {
       screen: TabContainer,
     },
+    //home
     Actives:{
       screen: Actives
     },
     News:{
       screen: News
     },
-    Master: {
-      screen: Master,
+    Bet:{
+      screen: Bet,
+      //path: 'Bet/:id',
     },
-    Masters: {
-      screen: Masters
-    },
-    Find: {
-      screen: Find,
-    },
-    User: {
-      screen: User,
-    },
+
+    //user
     Login:{
       screen: Login
     },
