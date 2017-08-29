@@ -56,20 +56,6 @@ class Home extends React.Component {
                     </View>
                  </Swiper>
                 </View>
-                <View style={styles.notice}>
-                   <Icon name="volume-up" size={18 } color={'#e23a3a'}/>
-                   <Swiper  removeClippedSubviews={false} horizontal={false} autoplay={true} loop={true} showsPagination={false}>
-                     <View>
-                       <Text style={styles.noticeItem}>123456</Text>
-                     </View>
-                     <View>
-                       <Text style={styles.noticeItem}>789asdff</Text>
-                     </View>
-                     <View>
-                       <Text style={styles.noticeItem}>asdfasdfasd</Text>
-                     </View>
-                  </Swiper>
-                 </View>
               </View>
           );
       }else {
