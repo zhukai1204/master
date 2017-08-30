@@ -116,335 +116,56 @@ const MethodTypeChunk = {
 //具体玩法
 const Methods = {
 	//幸运28
-    "600001": { "type": "num", "chunk":4, "begin": 0, "end": 27, "names":[] },
-    "600002": {
-        "type": "text",
-        "chunk":4,
-        "begin": 0,
-        "end": 3,
-        "names":['大', '小', '单', '双']
-    },
-    "600003": {
-        "type": "text",
-        "chunk":3,
-        "begin": 0,
-        "end": 2,
-        "names":['红', '绿', '蓝']
-    },
-    "600005": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        "end": 0,
-        "names":['豹子']
-    },
-    "600006": {
-        "type": "text",
-        "chunk":4,
-        "begin": 0,
-        "end": 3,
-        "names":['大单', '小单', '大双', '小双']
-    },
-    "600007": {
-        "type": "text",
-        "chunk":2,
-        "begin": 0,
-        "end": 1,
-        "names":['极大', '极小']
-    },
+    "600001": {"type": "num", "chunk":4, "begin": 0, "end": 27, "names":[]},
+    "600002": {"type": "text", "chunk":4, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "600003": {"type": "text", "chunk":3, "begin": 0, "end": 2, "names":['红', '绿', '蓝']},
+    "600005": {"type": "text", "chunk":1, "begin": 0, "end": 0, "names":['豹子']},
+    "600006": {"type": "text", "chunk":4, "begin": 0, "end": 3, "names":['大单', '小单', '大双', '小双']},
+    "600007": {"type": "text", "chunk":2, "begin": 0, "end": 1, "names":['极大', '极小']},
 
     //时时彩
-    "700001": {
-        "type": "num",
-        "chunk":1,
-        "begin": 0,
-        "end": 9,
-        "names":[]
-    },
-    "700002": {
-        "type": "num",
-        "chunk":1,
-        "begin": 0,
-        "end": 9,
-        "names":[]
-    },
-    "700003": {
-        "type": "num",
-        "chunk":1,
-        "begin": 0,
-        "end": 9,
-        "names":[]
-    },
-    "700004": {
-        "type": "num",
-        "chunk":1,
-        "begin": 0,
-        "end": 9,
-        "names":[]
-    },
-    "700005": {
-        "type": "num",
-        "chunk":1,
-        "begin": 0,
-        "end": 9,
-        "names":[]
-    },
-    "700006": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        "end": 3,
-        //"end": 5,
-        "names":['大', '小', '单', '双', '质', '和']
-    },
-    "700007": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        //"end": 5,
-        "end": 3,
-        "names":['大', '小', '单', '双', '质', '和']
-    },
-    "700008": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        //"end": 5,
-        "end": 3,
-        "names":['大', '小', '单', '双', '质', '和']
-    },
-    "700009": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        //"end": 5,
-        "end": 3,
-        "names":['大', '小', '单', '双', '质', '和']
-    },
-    "700010": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        //"end": 5,
-        "end": 3,
-        "names":['大', '小', '单', '双', '质', '和']
-    },
-    "700011": {
-        "type": "text",
-        "chunk":4,
-        "begin": 0,
-        "end": 6,
-        "names":['总大', '总小', '总单', '总双', '龙', '虎', '和']
-    },
-    "700037": {
-        "type": "text",
-        "chunk":3,
-        "begin": 0,
-        "end": 4,
-        "names":['豹子', '顺子', '对子', '半顺', '杂六']
-    },
-    "700038": {
-        "type": "text",
-        "chunk":3,
-        "begin": 0,
-        "end": 4,
-        "names":['豹子', '顺子', '对子', '半顺', '杂六']
-    },
-    "700039": {
-        "type": "text",
-        "chunk":3,
-        "begin": 0,
-        "end": 4,
-        "names":['豹子', '顺子', '对子', '半顺', '杂六']
-    },
-     "700040": {
-        "type": "text",
-        "chunk":11,
-        "begin": 0,
-        "end": 10,
-        "names":['无牛', '牛一', '牛二', '牛三', '牛四', '牛五', '牛六', '牛七', '牛八', '牛九', '牛牛']
-    },
-    "700041": {
-        "type": "text",
-        "chunk":6,
-        "begin": 0,
-        "end": 5,
-        "names":['大', '小', '单', '双', '质', '合']
-    },
-    "700042": {
-        "type": "text",
-        "chunk":8,
-        "begin": 1,
-        "end": 8,
-        "names":['五条', '炸弹', '葫芦', '顺子', '三条', '两对', '单对', '散号']
-    },
+    "700001": {"type": "num", "chunk":1, "begin": 0, "end": 9, "names":[]},
+    "700002": {"type": "num", "chunk":1, "begin": 0, "end": 9, "names":[]},
+    "700003": {"type": "num", "chunk":1, "begin": 0, "end": 9, "names":[]},
+    "700004": {"type": "num", "chunk":1, "begin": 0, "end": 9, "names":[]},
+    "700005": {"type": "num", "chunk":1, "begin": 0, "end": 9, "names":[]},
+    "700006": {"type": "text", "chunk":1, "begin": 0, "end": 3,/*"end": 5,*/"names":['大', '小', '单', '双', '质', '和']},
+    "700007": {"type": "text", "chunk":1, "begin": 0, "end": 3,/*"end": 5,*/"names":['大', '小', '单', '双', '质', '和']},
+    "700008": {"type": "text", "chunk":1, "begin": 0, "end": 3,/*"end": 5,*/"names":['大', '小', '单', '双', '质', '和']},
+    "700009": {"type": "text", "chunk":1, "begin": 0, "end": 3,/*"end": 5,*/"names":['大', '小', '单', '双', '质', '和']},
+    "700010": {"type": "text", "chunk":1, "begin": 0, "end": 3,/*"end": 5,*/"names":['大', '小', '单', '双', '质', '和']},
+    "700011": {"type": "text", "chunk":4, "begin": 0, "end": 6,"names":['总大', '总小', '总单', '总双', '龙', '虎', '和']},
+    "700037": {"type": "text", "chunk":3, "begin": 0, "end": 4,"names":['豹子', '顺子', '对子', '半顺', '杂六']},
+    "700038": {"type": "text", "chunk":3, "begin": 0, "end": 4,"names":['豹子', '顺子', '对子', '半顺', '杂六']},
+    "700039": {"type": "text", "chunk":3, "begin": 0, "end": 4,"names":['豹子', '顺子', '对子', '半顺', '杂六']},
+    "700040": {"type": "text", "chunk":11,"begin": 0, "end": 10,"names":['无牛', '牛一', '牛二', '牛三', '牛四', '牛五', '牛六', '牛七', '牛八', '牛九', '牛牛']},
+    "700041": {"type": "text", "chunk":6, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '质', '合']},
+    "700042": {"type": "text", "chunk":8, "begin": 1, "end": 8, "names":['五条', '炸弹', '葫芦', '顺子', '三条', '两对', '单对', '散号']},
 
     //北京赛车
-    "704000": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704001": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704002": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704003": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704004": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704005": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704006": {
-        "type": "num",
-        "chunk":1,
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704007": {
-        "type": "num",
-        "chunk":1,
-        "preClass":'num-',
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704008": {
-        "type": "num",
-        "chunk":1,
-        "preClass":'num-',
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704009": {
-        "type": "num",
-        "class":'20',
-        "chunk":1,
-        "preClass":'num-',
-            "begin": 1,
-            "end": 10,
-            "names":[]
-    },
-    "704010": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 5,
-            "names":['大', '小', '单', '双', '龙', '虎']
-    },
-    "704011": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 5,
-            "names":['大', '小', '单', '双', '龙', '虎']
-    },
-    "704012": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 5,
-            "names":['大', '小', '单', '双', '龙', '虎']
-    },
-    "704013": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 5,
-            "names":['大', '小', '单', '双', '龙', '虎']
-    },
-    "704014": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 5,
-            "names":['大', '小', '单', '双', '龙', '虎']
-    },
-    "704015": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 3,
-            "names":['大', '小', '单', '双']
-    },
-    "704016": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 3,
-            "names":['大', '小', '单', '双']
-    },
-    "704017": {
-        "type": "text",
-        "chunk":1,
-            "begin": 0,
-            "end": 3,
-            "names":['大', '小', '单', '双']
-    },
-    "704018": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        "end": 3,
-        "names":['大', '小', '单', '双']
-    },
-    "704019": {
-        "type": "text",
-        "chunk":1,
-        "begin": 0,
-        "end": 3,
-        "names":['大', '小', '单', '双']
-    },
-    "704020": {
-        "type": "num",
-        "chunk":4,
-        "begin": 3,
-        "end": 19,
-        "names":[]
-    },
-    "704021": {
-        "type": "text",
-        "chunk":4,
-        "begin": 0,
-        "end": 3,
-        "names":['大', '小', '单', '双']
-    },
-    "704022": {
-        "type": "text",
-        "chunk":4,
-        "begin": 0,
-        "end": 9,
-        "names":['1vs10龙', '1vs10虎','2vs9龙','2 vs 9 虎','3 vs 8 龙','3 vs 8 虎','4 vs 7 龙','4 vs 7 虎','5 vs 6 龙','5 vs 6 虎']
-    },
+    "704000": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704001": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704002": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704003": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704004": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704005": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704006": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704007": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704008": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704009": {"type": "num", "chunk":1, "begin": 1, "end": 10, "names":[]},
+    "704010": {"type": "text","chunk":1, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '龙', '虎']},
+    "704011": {"type": "text","chunk":1, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '龙', '虎']},
+    "704012": {"type": "text","chunk":1, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '龙', '虎']},
+    "704013": {"type": "text","chunk":1, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '龙', '虎']},
+    "704014": {"type": "text","chunk":1, "begin": 0, "end": 5, "names":['大', '小', '单', '双', '龙', '虎']},
+    "704015": {"type": "text","chunk":1, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "704016": {"type": "text","chunk":1, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "704017": {"type": "text","chunk":1, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "704018": {"type": "text","chunk":1, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "704019": {"type": "text","chunk":1, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "704020": {"type": "num", "chunk":4, "begin": 3, "end": 19,"names":[]},
+    "704021": {"type": "text","chunk":4,"begin": 0,"end": 3,"names":['大', '小', '单', '双']},
+    "704022": {"type": "text","chunk":4,"begin": 0,"end": 9,"names":['1vs10龙', '1vs10虎','2vs9龙','2 vs 9 虎','3 vs 8 龙','3 vs 8 虎','4 vs 7 龙','4 vs 7 虎','5 vs 6 龙','5 vs 6 虎']},
 }
 export {
 	Game,
