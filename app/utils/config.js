@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text} from '';
+import {StyleSheet, View, Text} from 'react-native';
 //游戏
 const Game = {
 	'1' : 'PC蛋蛋',
@@ -458,11 +458,11 @@ const GameRule = function(gameId){
                 <Text>具体游戏规则如下：</Text>
                 {this.MethodRules()}                
              </View>),
-        "10":(),
-        "20":(),
-        "30":(),
-        "40":(),
-        "50":()
+        "10":(<View></View>),
+        "20":(<View></View>),
+        "30":(<View></View>),
+        "40":(<View></View>),
+        "50":(<View></View>)
     }
 
     return rules[method];
