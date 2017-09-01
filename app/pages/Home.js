@@ -3,8 +3,10 @@ import { StyleSheet, Image, Text, Linking, View ,ScrollView, Dimensions,Touchabl
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 import TouchAbleButton from '../components/TouchAbleButton';
-var {hieght, width} = Dimensions.get('window'); 
-var swiperRatio = 680/width;
+import _ from 'lodash';
+import { Game } from '../utils/config';
+const {hieght, width} = Dimensions.get('window'); 
+const swiperRatio = 680/width;
 
 class Home extends React.Component {
   
@@ -73,12 +75,23 @@ class Home extends React.Component {
   }
 
   render() {
+    let gameData = [];
+    for (let id in Game) {   
+        let imgSrc = '../img/game/1.png';
+        gameData.push({
+          key:id,
+          name:Game[id],
+          imgSrc:require(imgSrc)
+        })
+    }
+    gameData = _.chunk(gameData, 3); 
     return (
       	<View style={styles.content}>
 	      	<StatusBar backgroundColor={'#000'} barStyle={'light-content'}/>
           <ScrollView>
            {this.renderSwiper()}
   		     <View style={styles.gameArean}>
+            
             <View style={styles.gameAreanRow}>
               <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:1})}>
                 <Image style={styles.gameAreanItemImg} source={require('../img/game/1.png')} />
@@ -97,7 +110,22 @@ class Home extends React.Component {
                 <Text style={styles.gameAreanItemName}>北京赛车PK0</Text>
               </TouchableOpacity>
             </View>
-  		     </View>
+  		      {
+              gameData.map((item)=>(
+                <View style={styles.gameAreanRow}>
+                  {item.map((game)=>(
+                      <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:game.key})}>
+                        <Image style={styles.gameAreanItemImg} source={game.imgSrc} />
+                        <Text style={styles.gameAreanItemName}>{game.name}</Text>
+                        <View style={styles.gameAreanItemHotTitleCon}>
+                          <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
+                        </View>
+                      </TouchableOpacity>
+                    ))}
+                </View>
+              ))
+            }
+           </View>
            <View style={styles.news}>
             <View style={styles.newsHeader}>
               <Text>资讯</Text>
