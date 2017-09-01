@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 import TouchAbleButton from '../components/TouchAbleButton';
 import _ from 'lodash';
-import { Game } from '../utils/config';
+import { Game, GameLogo } from '../utils/config';
 const {hieght, width} = Dimensions.get('window'); 
 const swiperRatio = 680/width;
 
@@ -77,11 +77,11 @@ class Home extends React.Component {
   render() {
     let gameData = [];
     for (let id in Game) {   
-        let imgSrc = '../img/game/1.png';
         gameData.push({
           key:id,
           name:Game[id],
-          imgSrc:require(imgSrc)
+          imgSrc:GameLogo[id],
+          hot:id
         })
     }
     gameData = _.chunk(gameData, 3); 
@@ -91,25 +91,6 @@ class Home extends React.Component {
           <ScrollView>
            {this.renderSwiper()}
   		     <View style={styles.gameArean}>
-            
-            <View style={styles.gameAreanRow}>
-              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:1})}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/1.png')} />
-                <Text style={styles.gameAreanItemName}>PC蛋蛋</Text>
-                <View style={styles.gameAreanItemHotTitleCon}>
-                  <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:10})}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/10.png')} />
-                <Text style={styles.gameAreanItemName}>重庆时时彩</Text>
-                <Text style={styles.gameAreanItemTitle}>用户喜中980万</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:20})}>
-                <Image style={styles.gameAreanItemImg} source={require('../img/game/20.png')} />
-                <Text style={styles.gameAreanItemName}>北京赛车PK0</Text>
-              </TouchableOpacity>
-            </View>
   		      {
               gameData.map((item)=>(
                 <View style={styles.gameAreanRow}>
@@ -117,9 +98,9 @@ class Home extends React.Component {
                       <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:game.key})}>
                         <Image style={styles.gameAreanItemImg} source={game.imgSrc} />
                         <Text style={styles.gameAreanItemName}>{game.name}</Text>
-                        <View style={styles.gameAreanItemHotTitleCon}>
+                        {game.hot==1?(<View style={styles.gameAreanItemHotTitleCon}>
                           <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
-                        </View>
+                        </View>):(<Text style={styles.gameAreanItemTitle}>用户喜中980万</Text>)}
                       </TouchableOpacity>
                     ))}
                 </View>
