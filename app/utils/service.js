@@ -6,6 +6,9 @@ const Lottery = {
 	},
 	getLottery:function(id){
 		return request(`${SERVER_URL}/lottery/getLottery?id=${id}`, 'GET')
+	},
+	doBet:function(data){
+		return request(`${SERVER_URL}/lottery/doBet`, 'POST', data)
 	}	
 }
 
