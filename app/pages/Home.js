@@ -5,6 +5,8 @@ import Swiper from 'react-native-swiper';
 import TouchAbleButton from '../components/TouchAbleButton';
 import _ from 'lodash';
 import { Game, GameLogo } from '../utils/config';
+import { Lottery } from '../utils/service';
+import toastUtils from '../utils/toastUtils';
 const {hieght, width} = Dimensions.get('window'); 
 const swiperRatio = 680/width;
 
@@ -24,11 +26,33 @@ class Home extends React.Component {
 
   //<TouchAbleButton style={{padding:5,color:'#fff',borderWidth:1,borderColor:'#fff',borderStyle:'solid',borderRadius:5,textAlign:'center',marginRight:5}} text={'试玩'} />
   
+
   constructor(props) {
       super(props);
       this.state = {
           swiperShow:false,
+          games:[]
       };
+      Lottery.getLotterys(6).then((res)=>{
+        if(res.status == 1){
+          let games = [];
+          res['data'].map((game)=>{
+            games.push({
+              status:game.status,
+              key:game.id,
+              name:game.name,
+              imgSrc:GameLogo[game.id],
+              hot:game.hotStatus,
+              hotText:game.hotText
+            })
+          })
+          this.setState({
+            games:_.chunk(games, 3)
+          })
+        }
+      }).catch((err)=>{
+        
+      })
   }
 
   componentDidMount(){
@@ -66,6 +90,22 @@ class Home extends React.Component {
   }
 
   onNav(page, param) {
+    if(this.navStatus) return;
+    if(page == 'Bet'){
+      if(param.status == 0){
+        toastUtils.showShort('该彩票已经停售！');
+        return;
+      }else if(param.status == 2){
+        toastUtils.showShort('该彩票正在维护！');
+        return;
+      }else{
+        delete param.status;
+      }
+    }
+    this.navStatus = true;
+    setTimeout(()=>{
+      this.navStatus = false;
+    }, 1000)
     const { navigate } = this.props.navigation;
     if(param){
       navigate(page, param);
@@ -75,16 +115,7 @@ class Home extends React.Component {
   }
 
   render() {
-    let gameData = [];
-    for (let id in Game) {   
-        gameData.push({
-          key:id,
-          name:Game[id],
-          imgSrc:GameLogo[id],
-          hot:id
-        })
-    }
-    gameData = _.chunk(gameData, 3); 
+    
     return (
       	<View style={styles.content}>
 	      	<StatusBar backgroundColor={'#000'} barStyle={'light-content'}/>
@@ -92,15 +123,15 @@ class Home extends React.Component {
            {this.renderSwiper()}
   		     <View style={styles.gameArean}>
   		      {
-              gameData.map((item)=>(
+              this.state.games.map((item)=>(
                 <View style={styles.gameAreanRow}>
                   {item.map((game)=>(
-                      <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:game.key})}>
+                      <TouchableOpacity style={styles.gameAreanItem} onPress={()=>this.onNav('Bet', {id:game.key,status:game.status})}>
                         <Image style={styles.gameAreanItemImg} source={game.imgSrc} />
                         <Text style={styles.gameAreanItemName}>{game.name}</Text>
                         {game.hot==1?(<View style={styles.gameAreanItemHotTitleCon}>
-                          <Text style={styles.gameAreanItemHotTitle}>用户喜中980万</Text>
-                        </View>):(<Text style={styles.gameAreanItemTitle}>用户喜中980万</Text>)}
+                          <Text style={styles.gameAreanItemHotTitle}>{game.hotText}</Text>
+                        </View>):(<Text style={styles.gameAreanItemTitle}>{game.hotText}</Text>)}
                       </TouchableOpacity>
                     ))}
                 </View>
@@ -204,17 +235,18 @@ var styles = StyleSheet.create({
   },
   gameAreanRow:{
     flexDirection:'row',
-    justifyContent:'space-around'
+    justifyContent:'flex-start'
   },
   gameAreanItem:{
-    margin:5,
+    width:width/3,
+    marginTop:5,
     padding:5,
     backgroundColor:'rgba(255,255,255,.5)',
     borderStyle:'solid',
     borderWidth:1,
     borderColor:'#fff',
     borderRadius:5,
-    alignItems:'center'
+    alignItems:'center',
   },
   gameAreanItemImg:{
     width:60,
