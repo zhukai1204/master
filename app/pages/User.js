@@ -14,20 +14,34 @@ class User extends React.Component {
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>
         <TouchableOpacity style={{marginRight:10}}>
-          <Image source={require('../img/comm/message.png')} style={{width:24, height:24}} /> 
+          <Image source={require('../img/comm/icon/setting.png')} style={{width:24, height:24}} /> 
         </TouchableOpacity>
       </View>
       
     )
   };
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      orderIndex:1
+    }
 
-  onNav(page, param) {
+  }
+  onNav = (page, param) => {
     const { navigate } = this.props.navigation;
     if(param){
       navigate(page, { param });
     }else{
       navigate(page);
     }
+  }
+
+  checkOrderItem = (index)=>{
+    if(index == this.state.orderIndex) return;
+    this.setState({
+      orderIndex:index
+    })
   }
   render() {
     return (
@@ -37,36 +51,12 @@ class User extends React.Component {
           <Text style={styles.logOrReText}>登陆／注册</Text>
         </TouchableOpacity>
         <View style={styles.subHeader}>
-          <TouchableOpacity style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
-            <Image source={require('../img/comm/level.png')} style={[styles.userIcon, styles.userIcon1]}/>
-            <Text>等级中心</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.subHeaderItem}>
-            <Image source={require('../img/comm/inte.png')} style={[styles.userIcon, styles.userIcon2]}/>
-            <Text>积分中心</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.subHeader, styles.subHeaderItemBorderMargin]}>
           <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight, styles.subContentCenter]}>
             <View>
               <View style={styles.money}><Text>0.00</Text><Text style={{fontSize:10}}>元</Text></View>
               <Text style={styles.moneyText}>余额</Text>
             </View>
           </View>
-          <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight, styles.subContentCenter]}>
-            <View>
-              <Text style={styles.moneyNum}>0</Text>
-              <Text style={styles.moneyText}>积分</Text>
-            </View>
-          </View>
-          <View style={[styles.subHeaderItem,  styles.subContentCenter]}>
-            <View>
-              <View style={styles.money}><Text>0</Text><Text style={{fontSize:10}}>张</Text></View>
-              <Text style={styles.moneyText}>彩金卡</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.subHeader}>
           <TouchableOpacity style={[styles.subHeaderItem, styles.subHeaderItemBorderRight]}>
             <Image source={require('../img/comm/rech.png')} style={[styles.userIcon3]}/>
             <Text>充值</Text>
@@ -74,6 +64,17 @@ class User extends React.Component {
           <TouchableOpacity style={styles.subHeaderItem}>
             <Image source={require('../img/comm/draw.png')} style={[styles.userIcon4]}/>
             <Text>取款</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.orderHeader}>
+         <TouchableOpacity style={[styles.subHeaderItem, this.state.orderIndex==1?styles.orderItemActive:null]} onPress={()=>this.checkOrderItem(1)}>
+            <Text style={this.state.orderIndex==1?styles.orderItemActiveText:null}>全部订单</Text>
+          </TouchableOpacity>
+          <TouchableOpacity  style={[styles.subHeaderItem, this.state.orderIndex==2?styles.orderItemActive:null]} onPress={()=>this.checkOrderItem(2)}>
+            <Text style={this.state.orderIndex==2?styles.orderItemActiveText:null}>中奖订单</Text>
+          </TouchableOpacity>
+          <TouchableOpacity  style={[styles.subHeaderItem, this.state.orderIndex==3?styles.orderItemActive:null]} onPress={()=>this.checkOrderItem(3)}>
+            <Text style={this.state.orderIndex==3?styles.orderItemActiveText:null}>未开奖订单</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -110,13 +111,32 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
     paddingTop:10,
     paddingBottom:10,
+    backgroundColor:'#fff',
+    borderColor:'#d5d5d5',
+    borderStyle:'solid',
+    borderBottomWidth:1
+  },
+  orderHeader:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    height:40,
+    backgroundColor:'#fff',
+    borderColor:'#d5d5d5',
+    borderStyle:'solid',
+    borderBottomWidth:1,
+    backgroundColor:'#eee'
+  },
+  orderItemActive:{
     backgroundColor:'#fff'
+  },
+  orderItemActiveText:{
+    color:'#3e9ce9'
   },
   subHeaderItem:{
     flexDirection:'row',
     alignItems:'center',
+    justifyContent:'center',
     flex:1,
-    paddingLeft:20,
   },
   subHeaderItemBorderRight:{
     borderColor:'#f0f0f0',
@@ -125,10 +145,6 @@ var styles = StyleSheet.create({
   },
   subContentCenter:{
     justifyContent:'center'
-  },
-  subHeaderItemBorderMargin:{
-    marginTop:5,
-    marginBottom:5
   },
   money:{
     flexDirection:'row',

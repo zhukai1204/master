@@ -13,8 +13,8 @@ const swiperRatio = 680/width;
 class Home extends React.Component {
   
   static navigationOptions = ({ navigation }) =>({
-    title:'首页',
-    tabBarLabel:'首页',
+    title:'大厅',
+    tabBarLabel:'大厅',
     //header:null,
     headerStyle:{shadowColor: 'transparent',backgroundColor:'#000', elevation:0},
     tabBarIcon: ({ tintColor }) =>

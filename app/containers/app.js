@@ -35,8 +35,8 @@ import Protocol from '../pages/user/Protocol'
 const TabContainer = TabNavigator(
   {
     Home: { screen: Home },
-    Master: { screen: Master },
     Find: { screen: Find },
+    Master: { screen: Master },
     User: { screen: User },
   },
   {

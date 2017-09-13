@@ -12,6 +12,16 @@ const Lottery = {
 	}	
 }
 
+const User = {
+	login:function(data){
+		return request(`${SERVER_URL}/user/login`, 'POST', data)
+	},
+	register:function(data){
+		return request(`${SERVER_URL}/user/register`, 'POST', data)
+	}
+}
+
 export {
 	Lottery,
+	User
 }

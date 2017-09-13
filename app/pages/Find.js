@@ -5,9 +5,9 @@ import Style from '../utils/style';
 
 class Find extends React.Component {
   static navigationOptions = {
-    title: '发现',
+    title: '开奖',
     tabBarIcon: ({ tintColor }) =>
-      <Icon name="tags" size={25} color={tintColor} />,
+      <Icon name="trophy" size={25} color={tintColor} />,
     headerRight: (
       <Icon.Button
         name="magic"

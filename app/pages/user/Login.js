@@ -3,32 +3,74 @@ import { StyleSheet, Image, Text, Linking, View ,TextInput, TouchableOpacity} fr
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TouchAbleButton from '../../components/TouchAbleButton';
+import Spinner from 'react-native-loading-spinner-overlay';
 import Style from '../../utils/style';
+import { User } from '../../utils/service';
 
 class LoginUserName extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          userNamePass:true,
+          userName:null,
+          password:null,
+          loading:false
+      };
+  }
+
+  login = ()=>{
+    this.setState({
+      loading:true
+    })
+    User.login({
+      userName:this.state.userName,
+      password:this.state.password
+    }).then((res)=>{
+      console.warn(JSON.stringify(res));
+      this.setState({
+        loading:false
+      })
+    }).catch((err)=>{
+      this.setState({
+        loading:false
+      })
+    })
+  }
+
   render() {
     return (
       <View style={[Style.content, styles.content]}>
+          <Spinner visible={this.state.loading} color={'#3e9ce9'} />
           <View style={styles.inputItem}>
             <Icon name="user-o" size={24} color={'#999'} />
-            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入用户名'} placeholderTextColor={'#d9d9d9'}/>
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' onChangeText={(userName) => this.setState({userName})} style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入用户名'} placeholderTextColor={'#d9d9d9'}/>
           </View>
           <View style={styles.inputItem}>
             <Icon name="lock" size={24} color={'#999'} />
-            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
-            <Icon name="eye-slash" size={24} color={'#999'} />
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' onChangeText={(password) => this.setState({password})} style={styles.input} autoCapitalize={'none'} secureTextEntry={this.state.userNamePass} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
+            <TouchableOpacity onPress={()=>{this.setState({userNamePass:!this.state.userNamePass})}}>
+              {
+                this.state.userNamePass?(<Icon name="eye-slash" size={24} color={'#999'} />):(<Icon name="eye" size={24} color={'#999'} />)
+              }
+            </TouchableOpacity>
           </View>
           <View style={styles.loginFinds}>
             <TouchAbleButton text={'短信验证码登录'} style={styles.loginMsg} />
             <TouchAbleButton text={'忘记密码'} style={styles.findPass} />
           </View>
-          <TouchAbleButton text={'登录'} style={styles.loginBtn}/>
+          <TouchAbleButton text={'登录'} style={styles.loginBtn} onPress={()=>{this.login()}}/>
       </View>
     );
   }
 }
 
 class LoginPhone extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          telPass:true
+      };
+  }
   render() {
     return (
        <View style={[Style.content, styles.content]}>
@@ -38,8 +80,12 @@ class LoginPhone extends React.Component {
           </View>
           <View style={styles.inputItem}>
             <Icon name="lock" size={24} color={'#999'} />
-            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} password={true} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
-            <Icon name="eye" size={24} color={'#999'} />
+            <TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.input} autoCapitalize={'none'} secureTextEntry={this.state.telPass} maxLength = {16} placeholder={'请输入密码'} placeholderTextColor={'#d9d9d9'}/>
+            <TouchableOpacity onPress={()=>{this.setState({telPass:!this.state.telPass})}}>
+              {
+                this.state.telPass?(<Icon name="eye-slash" size={24} color={'#999'} />):(<Icon name="eye" size={24} color={'#999'} />)
+              }
+            </TouchableOpacity>
           </View>
           <View style={styles.loginFinds}>
             <TouchAbleButton text={'短信验证码登录'} style={styles.loginMsg} />
