@@ -5,7 +5,9 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TouchAbleButton from '../../components/TouchAbleButton';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Style from '../../utils/style';
-import { User } from '../../utils/service';
+import { UserService } from '../../utils/service';
+import LoadingView from '../../components/LoadingView';
+import toastUtils from '../../utils/toastUtils';
 
 class LoginUserName extends React.Component {
   constructor(props) {
@@ -22,25 +24,46 @@ class LoginUserName extends React.Component {
     this.setState({
       loading:true
     })
-    User.login({
+    UserService.login({
       userName:this.state.userName,
       password:this.state.password
     }).then((res)=>{
       console.warn(JSON.stringify(res));
       this.setState({
         loading:false
-      })
+      });
+      if(res.status == 1){
+       console.warn(JSON.stringify(res.data));
+        storage.save({
+          key: 'loginState',  // 注意:请不要在key中使用_下划线符号!
+          data: { 
+            userId: res.data.id,
+            userCode: res.data.userCode,
+            token: res.data.token
+          },
+          //expires: 1000 * 3600
+        });
+        this.props.navigation.state.params.update();
+        this.props.navigation.goBack();
+      }else{
+        toastUtils.showShort(res.info);
+      }
+     
     }).catch((err)=>{
+      console.warn(JSON.stringify(err));
       this.setState({
         loading:false
       })
+      toastUtils.showShort('请重新登录');
     })
   }
 
   render() {
     return (
       <View style={[Style.content, styles.content]}>
-          <Spinner visible={this.state.loading} color={'#3e9ce9'} />
+          {
+            this.state.loading?<LoadingView />:null
+          }
           <View style={styles.inputItem}>
             <Icon name="user-o" size={24} color={'#999'} />
             <TextInput underlineColorAndroid='rgba(0,0,0,0)' onChangeText={(userName) => this.setState({userName})} style={styles.input} autoCapitalize={'none'} maxLength = {16} placeholder={'请输入用户名'} placeholderTextColor={'#d9d9d9'}/>
@@ -115,8 +138,8 @@ class Login extends React.Component {
           tabBarUnderlineStyle={{backgroundColor:'#fff'}}
           tabBarInactiveTextColor={'#fff'}
           style={{borderWidth:0}}>
-          <LoginUserName tabLabel="用户名登陆" />
-          <LoginPhone tabLabel="手机号登录" />
+          <LoginUserName tabLabel="用户名登陆" navigation={this.props.navigation}/>
+          <LoginPhone tabLabel="手机号登录" navigation={this.props.navigation}/>
         </ScrollableTabView>
       </View>
     );

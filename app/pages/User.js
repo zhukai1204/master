@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Image, Text, Linking, View, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Style from '../utils/style';
-
+import { UserService } from '../utils/service';
 class User extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation })=>({
     title: '我的',
     tabBarIcon: ({ tintColor }) =>
       <Icon name="user" size={25} color={tintColor} />,
@@ -13,28 +13,60 @@ class User extends React.Component {
         <TouchableOpacity style={{marginRight:10}} onPress={() => Linking.openURL('https://www.baidu.com')}>
           <Image source={require('../img/comm/service.png')} style={{width:26, height:26}} /> 
         </TouchableOpacity>
-        <TouchableOpacity style={{marginRight:10}}>
+        <TouchableOpacity style={{marginRight:10}} onPress={()=>navigation.navigate('Setting')}>
           <Image source={require('../img/comm/icon/setting.png')} style={{width:24, height:24}} /> 
         </TouchableOpacity>
       </View>
-      
     )
-  };
+  });
   
   constructor(props) {
     super(props);
     this.state = {
-      orderIndex:1
+      orderIndex:1,
+      loginStatus:false,
+      userInfo:{}
     }
-
+    this.update();
   }
+  
+  update = ()=>{
+    storage.load({
+      key:'loginState',
+    }).then(ret => {
+      this.state.loginStatus = true;
+      UserService.getInfo(ret.userId).then(res=>{
+        if(res.status == 1){
+          this.setState({
+            loginStatus:true,
+            userInfo:{userName:res.data.userName, money:res.data.money}
+          })  
+        }else{
+
+        }
+      }).catch(err=>{
+      })
+    }).catch(ret=>{
+    })
+    
+  }
+
   onNav = (page, param) => {
     const { navigate } = this.props.navigation;
     if(param){
       navigate(page, { param });
     }else{
-      navigate(page);
+      navigate(page, {update: this.update});
     }
+  }
+
+  loginOrDetails = () => {
+      const { navigate } = this.props.navigation;
+      if(this.state.loginStatus){
+        navigate('Details');
+      }else{
+        navigate('Login', {update: this.update});
+      }
   }
 
   checkOrderItem = (index)=>{
@@ -46,9 +78,9 @@ class User extends React.Component {
   render() {
     return (
       <View style={Style.content}>
-        <TouchableOpacity style={styles.userHeader} onPress={()=>this.onNav('Login')}>
+        <TouchableOpacity style={styles.userHeader} onPress={()=>this.loginOrDetails()}>
           <Image source={require('../img/news/timg.jpg')} style={styles.avatar}/>
-          <Text style={styles.logOrReText}>登陆／注册</Text>
+          <Text style={styles.logOrReText}>{this.state.loginStatus?this.state.userInfo.userName:'登陆／注册'}</Text>
         </TouchableOpacity>
         <View style={styles.subHeader}>
           <View style={[styles.subHeaderItem, styles.subHeaderItemBorderRight, styles.subContentCenter]}>

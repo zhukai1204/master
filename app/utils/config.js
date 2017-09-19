@@ -292,10 +292,10 @@ const MethodTypeChunk = {
 const Methods = {
 	//幸运28
     "600001": {"type": "num", "chunk":4, "begin": 0, "end": 27, "names":[]},
-    "600002": {"type": "text", "chunk":4, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
+    "600002": {"type": "text", "chunk":2, "begin": 0, "end": 3, "names":['大', '小', '单', '双']},
     "600003": {"type": "text", "chunk":3, "begin": 0, "end": 2, "names":['红', '绿', '蓝']},
     "600005": {"type": "text", "chunk":1, "begin": 0, "end": 0, "names":['豹子']},
-    "600006": {"type": "text", "chunk":4, "begin": 0, "end": 3, "names":['大单', '小单', '大双', '小双']},
+    "600006": {"type": "text", "chunk":2, "begin": 0, "end": 3, "names":['大单', '小单', '大双', '小双']},
     "600007": {"type": "text", "chunk":2, "begin": 0, "end": 1, "names":['极大', '极小']},
 
     //时时彩
