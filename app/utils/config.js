@@ -288,6 +288,9 @@ const MethodTypeChunk = {
         '总和龙虎':['703016']
     },
 }
+const shows = {
+    tm28:['<Image style={Style.ballImage} source={require("../img/game/0.png")} />']
+}
 //具体玩法
 const Methods = {
 	//幸运28
