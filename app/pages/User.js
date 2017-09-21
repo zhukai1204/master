@@ -42,7 +42,7 @@ class User extends React.Component {
             userInfo:{userName:res.data.userName, money:res.data.money}
           })  
         }else{
-
+          this.setState({loginStatus:false});
         }
       }).catch(err=>{
       })

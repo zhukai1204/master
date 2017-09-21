@@ -7,6 +7,7 @@ import _ from 'lodash';
 import { Game, GameLogo } from '../utils/config';
 import { Lottery } from '../utils/service';
 import toastUtils from '../utils/toastUtils';
+import Style from '../utils/style';
 const {hieght, width} = Dimensions.get('window'); 
 const swiperRatio = 680/width;
 
@@ -49,9 +50,11 @@ class Home extends React.Component {
           this.setState({
             games:_.chunk(games, 3)
           })
+        }else{
+           toastUtils.showShort('该彩票正在维护！');
         }
       }).catch((err)=>{
-        
+        toastUtils.showShort('该彩票正在维jhjghjhg护！'+err);
       })
   }
 
@@ -117,7 +120,7 @@ class Home extends React.Component {
   render() {
     
     return (
-      	<View style={styles.content}>
+      	<View style={Style.content}>
 	      	<StatusBar backgroundColor={'#000'} barStyle={'light-content'}/>
           <ScrollView>
            {this.renderSwiper()}
@@ -241,10 +244,6 @@ var styles = StyleSheet.create({
     width:width/3,
     marginTop:5,
     padding:5,
-    backgroundColor:'rgba(255,255,255,.5)',
-    borderStyle:'solid',
-    borderWidth:1,
-    borderColor:'#fff',
     borderRadius:5,
     alignItems:'center',
   },
@@ -275,12 +274,12 @@ var styles = StyleSheet.create({
     paddingRight:5,
   },
    gameAreanItemTitle:{
-    backgroundColor:'#fff',
     color:'#999',
     fontSize:10,
     textAlign:'center',
     paddingLeft:5,
     paddingRight:5,
+    paddingTop:2
   },
   news:{
     paddingLeft:10,

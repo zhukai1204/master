@@ -15,6 +15,9 @@ const Lottery = {
 	},
 	doBet:function(data){
 		return request(`${SERVER_URL}/lottery/doBet`, 'POST', data)
+	},
+	lotteryDatas:function(){
+		return request(`${SERVER_URL}/lottery/lotteryDatas`, 'GET')
 	}	
 }
 

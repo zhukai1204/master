@@ -91,7 +91,16 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '25.0.0'
+
+    signingConfigs {
+        releaseConfig {
+            keyPassword 'luck001'
+            storeFile file('/Users/zhukai/Desktop/dstj.jks')
+            keyAlias 'com.jianshuo.dstj'
+            storePassword 'luck001'
+        }
+    }
 
     defaultConfig {
         applicationId "com.dstj"
