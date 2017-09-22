@@ -28,6 +28,8 @@ import BetRecord from '../pages/home/BetRecord';
 import TwoLong from '../pages/home/TwoLong';
 import ToDay from '../pages/home/ToDay';
 
+import MoreOpenData from '../pages/find/MoreOpenData';
+
 import Master from '../pages/Master';
 import Masters from '../pages/master/Masters'
 import Find from '../pages/Find';
@@ -108,6 +110,10 @@ const App = StackNavigator(
     },
     ToDay:{
       screen:ToDay
+    },
+    //find
+    MoreOpenData:{
+      screen:MoreOpenData
     },
     //user
     Login:{

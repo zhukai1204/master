@@ -54,7 +54,7 @@ class Home extends React.Component {
            toastUtils.showShort('该彩票正在维护！');
         }
       }).catch((err)=>{
-        toastUtils.showShort('该彩票正在维jhjghjhg护！'+err);
+        toastUtils.showShort('数据加载出错'+err);
       })
   }
 

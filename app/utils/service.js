@@ -18,7 +18,10 @@ const Lottery = {
 	},
 	lotteryDatas:function(){
 		return request(`${SERVER_URL}/lottery/lotteryDatas`, 'GET')
-	}	
+	},
+	lotteryData:function(id,skip, limit){
+		return request(`${SERVER_URL}/lottery/lotteryData?id=${id}&skip=${skip}&limit=${limit}`, 'GET')
+	}		
 }
 
 const UserService = {
